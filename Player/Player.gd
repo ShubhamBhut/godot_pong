@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
-var speed = 10
+var player_speed = 10
 
 func _physics_process(delta: float) -> void:
-	var velocity = Vector2.ZERO
+	var player_velocity = Vector2.ZERO
 	if Input.is_action_pressed("ui_up"):
-		velocity.y -= 1
+		player_velocity.y -= 1
 	if Input.is_action_pressed("ui_down"):
-		velocity.y += 1
-	move_and_collide(velocity * speed)
+		player_velocity.y += 1
+	move_and_collide(player_velocity * player_speed)
 	
