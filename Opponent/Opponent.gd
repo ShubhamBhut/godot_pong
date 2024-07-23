@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-var opponent_speed = 400
+var opponent_speed = 8
 var ball
 
 func _ready():
-	ball = get_parent().find_node("Ball")
+	ball = get_parent().get_node("Ball")
 
 func _physics_process(delta: float):
 	move_and_collide(Vector2(0, get_opponent_direction() * opponent_speed))

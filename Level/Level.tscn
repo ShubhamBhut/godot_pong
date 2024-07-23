@@ -1,14 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccjo17qbjm181"]
+[gd_scene load_steps=8 format=3 uid="uid://ccjo17qbjm181"]
 
+[ext_resource type="Script" path="res://Level/Level.gd" id="1_rhom4"]
 [ext_resource type="PackedScene" uid="uid://bd1kl5w13rhtn" path="res://Player/Player.tscn" id="1_u0db7"]
-[ext_resource type="PackedScene" uid="uid://2lrlb0dklm3w" path="res://Opponent/Opponent.tscn" id="2_isw3t"]
+[ext_resource type="PackedScene" path="res://Opponent/Opponent.tscn" id="2_isw3t"]
 [ext_resource type="Script" path="res://Opponent/Opponent.gd" id="3_8q6oi"]
-[ext_resource type="PackedScene" uid="uid://bpvilfh8toihn" path="res://Ball/Ball.tscn" id="3_jxq7v"]
+[ext_resource type="PackedScene" uid="uid://bwcytxcq85r0b" path="res://Ball/Ball.tscn" id="3_jxq7v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_um7gm"]
 size = Vector2(1280, 10)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28xkp"]
+size = Vector2(20, 744)
+
 [node name="Level" type="Node"]
+script = ExtResource("1_rhom4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -42,3 +47,18 @@ script = ExtResource("3_8q6oi")
 
 [node name="Ball" parent="." instance=ExtResource("3_jxq7v")]
 position = Vector2(625, 330)
+
+[node name="Left" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+position = Vector2(-10, 361)
+shape = SubResource("RectangleShape2D_28xkp")
+
+[node name="Right" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+position = Vector2(1291, 360)
+shape = SubResource("RectangleShape2D_28xkp")
+
+[connection signal="body_entered" from="Left" to="." method="_on_left_body_entered"]
+[connection signal="body_entered" from="Right" to="." method="_on_right_body_entered"]
