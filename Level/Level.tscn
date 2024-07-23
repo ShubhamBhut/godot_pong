@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://ccjo17qbjm181"]
+[gd_scene load_steps=12 format=3 uid="uid://ccjo17qbjm181"]
 
 [ext_resource type="Script" path="res://Level/Level.gd" id="1_rhom4"]
 [ext_resource type="PackedScene" uid="uid://bd1kl5w13rhtn" path="res://Player/Player.tscn" id="1_u0db7"]
 [ext_resource type="PackedScene" uid="uid://2lrlb0dklm3w" path="res://Opponent/Opponent.tscn" id="2_isw3t"]
 [ext_resource type="Script" path="res://Opponent/Opponent.gd" id="3_8q6oi"]
 [ext_resource type="PackedScene" uid="uid://bwcytxcq85r0b" path="res://Ball/Ball.tscn" id="3_jxq7v"]
+[ext_resource type="AudioStream" uid="uid://ctocu00x4duvx" path="res://Assets/ping_pong_8bit_plop.ogg" id="6_t30rp"]
 
 [sub_resource type="FontFile" id="FontFile_gs53d"]
 cache/0/40/0/ascent = 0.0
@@ -164,6 +165,9 @@ shape = SubResource("RectangleShape2D_28xkp")
 [node name="CountdownTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="ScoreSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_t30rp")
 
 [connection signal="body_entered" from="Left" to="." method="_on_left_body_entered"]
 [connection signal="body_entered" from="Right" to="." method="_on_right_body_entered"]

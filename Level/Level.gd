@@ -8,6 +8,7 @@ func score_achieved():
 	get_tree().call_group('BallGroup', 'stop_ball')
 	$CountdownTimer.start()
 	$CountdownLabel.visible = true
+	$ScoreSound.play()
 
 func _on_left_body_entered(body: Node2D) -> void:
 	score_achieved()

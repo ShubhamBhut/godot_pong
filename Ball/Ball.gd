@@ -12,6 +12,7 @@ func _physics_process(delta: float):
 	var collision_object = move_and_collide(ball_velocity * ball_speed * delta)
 	if collision_object:
 		ball_velocity = ball_velocity.bounce(collision_object.get_normal())
+		$CollisionSound.play()
 
 func stop_ball():
 	ball_speed = 0
