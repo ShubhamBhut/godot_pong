@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var opponent_speed = 8
+var opponent_speed = 10
 var ball
 
 func _ready():

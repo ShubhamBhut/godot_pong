@@ -1,13 +1,45 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccjo17qbjm181"]
+[gd_scene load_steps=10 format=3 uid="uid://ccjo17qbjm181"]
 
 [ext_resource type="Script" path="res://Level/Level.gd" id="1_rhom4"]
 [ext_resource type="PackedScene" uid="uid://bd1kl5w13rhtn" path="res://Player/Player.tscn" id="1_u0db7"]
-[ext_resource type="PackedScene" path="res://Opponent/Opponent.tscn" id="2_isw3t"]
+[ext_resource type="PackedScene" uid="uid://2lrlb0dklm3w" path="res://Opponent/Opponent.tscn" id="2_isw3t"]
 [ext_resource type="Script" path="res://Opponent/Opponent.gd" id="3_8q6oi"]
 [ext_resource type="PackedScene" uid="uid://bwcytxcq85r0b" path="res://Ball/Ball.tscn" id="3_jxq7v"]
 
+[sub_resource type="FontFile" id="FontFile_gs53d"]
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+cache/0/40/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="FontFile_hu0lw"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+cache/0/40/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/40/0 = Vector2(0, 0)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_um7gm"]
-size = Vector2(1280, 10)
+size = Vector2(1279, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_28xkp"]
 size = Vector2(20, 744)
@@ -23,6 +55,40 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.054902, 0.0823529, 0.101961, 1)
 
+[node name="PlayerScore" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -304.0
+offset_right = -200.0
+offset_bottom = -304.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontFile_gs53d")
+theme_override_font_sizes/font_size = 40
+text = "Player Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="OpponentScore" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = -300.0
+offset_right = 200.0
+offset_bottom = -300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontFile_hu0lw")
+theme_override_font_sizes/font_size = 40
+text = "Opponent Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_group_ = true
+
 [node name="Player" parent="." instance=ExtResource("1_u0db7")]
 position = Vector2(50, 360)
 
@@ -37,7 +103,7 @@ shape = SubResource("RectangleShape2D_um7gm")
 position = Vector2(263, 77)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallBottom"]
-position = Vector2(378, 650)
+position = Vector2(377.5, 650)
 shape = SubResource("RectangleShape2D_um7gm")
 metadata/_edit_group_ = true
 
@@ -51,7 +117,7 @@ position = Vector2(625, 330)
 [node name="Left" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
-position = Vector2(-10, 361)
+position = Vector2(-11, 361)
 shape = SubResource("RectangleShape2D_28xkp")
 
 [node name="Right" type="Area2D" parent="."]
